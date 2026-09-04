@@ -120,7 +120,7 @@ class HookCounterWidget:
         x = cfg.get("window_x")
         y = cfg.get("window_y")
         if x is None or y is None:
-            x, y = root.winfo_screenwidth() - 240, 40
+            x, y = 20, 40
         root.geometry(f"220x112+{x}+{y}")
 
         frame = tk.Frame(root, bg="#1b1f27")
