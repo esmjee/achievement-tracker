@@ -7,7 +7,7 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
-APPID = 648800  # Raft
+APPID = 648800
 STAT_NAME = "stat_player_hookCount"
 TARGET = 5000
 CONFIG_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.json")
@@ -95,7 +95,7 @@ class SetupDialog(tk.Toplevel):
         self.update_idletasks()
         try:
             fetch_hook_count(api_key, steam_id)
-        except Exception as e:  # noqa: BLE001
+        except Exception as e:
             self.error_label.config(text=f"Couldn't verify: {e}")
             return
         self.cfg["api_key"] = api_key
@@ -215,7 +215,7 @@ class HookCounterWidget:
             count = fetch_hook_count(self.cfg["api_key"], self.cfg["steam_id64"])
             remaining = max(TARGET - count, 0)
             self.root.after(0, self._update_ui, remaining, count, None)
-        except Exception as e:  # noqa: BLE001
+        except Exception as e:
             self.root.after(0, self._update_ui, None, None, str(e))
 
     def _update_ui(self, remaining, count, error):
